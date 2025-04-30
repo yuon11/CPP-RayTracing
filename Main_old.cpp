@@ -254,137 +254,137 @@ Color getColorAt(Vect3 intersection_pos, Vect3 intersecting_ray_dir, vector<Obje
 
 int thisone;
 
-int main( int argc, char *argv[]){
-    std::cout << "rendering begin... - time "<<ctime(&progTime) << std::endl;
-    std::cout << "Setting up vertices/normals etc - time "<<ctime(&progTime) << std::endl;
-    int dpi = 72;
-    int width = 1080;
-    int height = 960;
-    int n = width * height;
+// int main( int argc, char *argv[]){
+//     std::cout << "rendering begin... - time "<<ctime(&progTime) << std::endl;
+//     std::cout << "Setting up vertices/normals etc - time "<<ctime(&progTime) << std::endl;
+//     int dpi = 72;
+//     int width = 1080;
+//     int height = 960;
+//     int n = width * height;
 
-    double aspectratio = (double)width/(double)height;
-    double ambientlight = 0.2;
-    double accuracy = 0.000001;
+//     double aspectratio = (double)width/(double)height;
+//     double ambientlight = 0.2;
+//     double accuracy = 0.000001;
 
-    RGBType *pixels = new RGBType[n];
+//     RGBType *pixels = new RGBType[n];
 
-    Vect3 X (1,0,0);
-    Vect3 Y (0,1,0);
-    Vect3 Z (0,0,1);
+//     Vect3 X (1,0,0);
+//     Vect3 Y (0,1,0);
+//     Vect3 Z (0,0,1);
 
-    Vect3 campos(3,1.5,-4);
-    Vect3 look_at (0, 0, 0);
-    Vect3 diff_btw (campos.getx() - look_at.getx(), campos.gety() - look_at.gety(), campos.getz() - look_at.getz());
+//     Vect3 campos(3,1.5,-4);
+//     Vect3 look_at (0, 0, 0);
+//     Vect3 diff_btw (campos.getx() - look_at.getx(), campos.gety() - look_at.gety(), campos.getz() - look_at.getz());
 
-    Vect3 camdir = diff_btw.negative().normalize();
-    Vect3 camright = Y.cross_product(camdir).normalize();
-    Vect3 camdown = camright.cross_product(camdir);
+//     Vect3 camdir = diff_btw.negative().normalize();
+//     Vect3 camright = Y.cross_product(camdir).normalize();
+//     Vect3 camdown = camright.cross_product(camdir);
 
-    Camera scene_cam(campos, camdir, camright, camdown);
+//     Camera scene_cam(campos, camdir, camright, camdown);
 
-    Color white_light(1.0, 1.0, 1.0, 0);
-    Color pretty_green(0.5, 1.0, 0.5, 0.3);
-    Color maroon(0.5, 0.25, 0.25, 0);
+//     Color white_light(1.0, 1.0, 1.0, 0);
+//     Color pretty_green(0.5, 1.0, 0.5, 0.3);
+//     Color maroon(0.5, 0.25, 0.25, 0);
 
-    Color tile_floor(1, 1, 1, 2);
+//     Color tile_floor(1, 1, 1, 2);
 
-    Color gray(0.5, 0.5, 0.5, 0);
-    Color black(0, 0, 0, 0);
+//     Color gray(0.5, 0.5, 0.5, 0);
+//     Color black(0, 0, 0, 0);
 
-    Vect3 light_position(-7,10,-10);
-    Light scene_light(light_position, white_light);
-    vector<Source*> light_sources;
-    light_sources.push_back(dynamic_cast<Source*>(&scene_light));
+//     Vect3 light_position(-7,10,-10);
+//     Light scene_light(light_position, white_light);
+//     vector<Source*> light_sources;
+//     light_sources.push_back(dynamic_cast<Source*>(&scene_light));
 
 
-    //SCENE OBJECTS
-    Sphere sphere_obj(Vect3(-2.5,0,0),1, pretty_green);
-    Sphere sphere_obj2(Vect3(0.5,0,1),1, pretty_green);
+//     //SCENE OBJECTS
+//     Sphere sphere_obj(Vect3(-2.5,0,0),1, pretty_green);
+//     Sphere sphere_obj2(Vect3(0.5,0,1),1, pretty_green);
     
-    Triangle triangle_obj(Vect3(1,0,0),Vect3(0,1,0),Vect3(0,0,1), pretty_green);
+//     Triangle triangle_obj(Vect3(1,0,0),Vect3(0,1,0),Vect3(0,0,1), pretty_green);
 
-    Plane plane_obj(Y, -1, tile_floor);
+//     Plane plane_obj(Y, -1, tile_floor);
     
-    //our vector of objects in the scene
-    vector<Object*> scene_objects;
-    scene_objects.push_back(dynamic_cast<Object*>(&plane_obj));
+//     //our vector of objects in the scene
+//     vector<Object*> scene_objects;
+//     scene_objects.push_back(dynamic_cast<Object*>(&plane_obj));
 
-    scene_objects.push_back(dynamic_cast<Object*>(&sphere_obj));
-    scene_objects.push_back(dynamic_cast<Object*>(&sphere_obj2));
-    scene_objects.push_back(dynamic_cast<Object*>(&triangle_obj));
+//     scene_objects.push_back(dynamic_cast<Object*>(&sphere_obj));
+//     scene_objects.push_back(dynamic_cast<Object*>(&sphere_obj2));
+//     scene_objects.push_back(dynamic_cast<Object*>(&triangle_obj));
 
-    double x_amnt, y_amnt;
-    std::cout << "Finished setting up vertices/normals etc - time"<<ctime(&progTime) << std::endl;
-    std::cout << "Begin applying geometry functions to vertices - time "<<ctime(&progTime) << std::endl;
-    for (int x = 0; x < width; x++)
-    {
-        for (int y = 0; y < height; y++)
-        {
-            thisone = y*width + x;
+//     double x_amnt, y_amnt;
+//     std::cout << "Finished setting up vertices/normals etc - time"<<ctime(&progTime) << std::endl;
+//     std::cout << "Begin applying geometry functions to vertices - time "<<ctime(&progTime) << std::endl;
+//     for (int x = 0; x < width; x++)
+//     {
+//         for (int y = 0; y < height; y++)
+//         {
+//             thisone = y*width + x;
 
-            //No Anti-aliasing to start
-            if (width > height)
-            {
-                //Wider than it is tall
-                x_amnt = ((x+0.5)/width)*aspectratio - (((width-height)/(double)height)/2);
-                y_amnt = ((height - y) + 0.5)/height;
-            }
-            else if(height > width)
-            {
-                //taller than is wide
-                x_amnt = (x+0.5)/width;
-                y_amnt = (((height - y) + 0.5)/height)/aspectratio - (((height - width)/(double)width)/2);
-            }
-            else
-            {
-                //square image
-                x_amnt=(x + 0.5)/width;
-                y_amnt = ((height - y) + 0.5)/height;
-            }
+//             //No Anti-aliasing to start
+//             if (width > height)
+//             {
+//                 //Wider than it is tall
+//                 x_amnt = ((x+0.5)/width)*aspectratio - (((width-height)/(double)height)/2);
+//                 y_amnt = ((height - y) + 0.5)/height;
+//             }
+//             else if(height > width)
+//             {
+//                 //taller than is wide
+//                 x_amnt = (x+0.5)/width;
+//                 y_amnt = (((height - y) + 0.5)/height)/aspectratio - (((height - width)/(double)width)/2);
+//             }
+//             else
+//             {
+//                 //square image
+//                 x_amnt=(x + 0.5)/width;
+//                 y_amnt = ((height - y) + 0.5)/height;
+//             }
             
             
-            Vect3 cam_ray_origin = scene_cam.getCameraPostion();
-            Vect3 cam_ray_direction = (camdir + camright*(x_amnt-0.5) + camdown*(y_amnt-0.5)).normalize();
+//             Vect3 cam_ray_origin = scene_cam.getCameraPostion();
+//             Vect3 cam_ray_direction = (camdir + camright*(x_amnt-0.5) + camdown*(y_amnt-0.5)).normalize();
 
-            Ray cam_ray(cam_ray_origin, cam_ray_direction);
+//             Ray cam_ray(cam_ray_origin, cam_ray_direction);
 
-            // Intersections
-            vector<double> intersections;
-            for (int index = 0; index < scene_objects.size(); index++)
-            {
-                intersections.push_back(scene_objects.at(index)->findIntersection(cam_ray));
-            }
+//             // Intersections
+//             vector<double> intersections;
+//             for (int index = 0; index < scene_objects.size(); index++)
+//             {
+//                 intersections.push_back(scene_objects.at(index)->findIntersection(cam_ray));
+//             }
 
-            int closest_hit_object_index = closestHitObject(intersections);            
+//             int closest_hit_object_index = closestHitObject(intersections);            
 
-            if (closest_hit_object_index == -1)
-            {   
-                // Set backgroub black
-                pixels[thisone].r = 0;
-                pixels[thisone].g = 0;
-                pixels[thisone].b = 0;
-            }
-            else
-            {        
-                if(intersections.at(closest_hit_object_index) > accuracy){
-                    // Index is object in scene
-                    Vect3 intersection_position = cam_ray_origin+(cam_ray_direction*intersections.at(closest_hit_object_index));
-                    Vect3 intersection_ray_direction = cam_ray_direction;
+//             if (closest_hit_object_index == -1)
+//             {   
+//                 // Set backgroub black
+//                 pixels[thisone].r = 0;
+//                 pixels[thisone].g = 0;
+//                 pixels[thisone].b = 0;
+//             }
+//             else
+//             {        
+//                 if(intersections.at(closest_hit_object_index) > accuracy){
+//                     // Index is object in scene
+//                     Vect3 intersection_position = cam_ray_origin+(cam_ray_direction*intersections.at(closest_hit_object_index));
+//                     Vect3 intersection_ray_direction = cam_ray_direction;
                     
-                    Color intersectionColor = getColorAt(intersection_position, intersection_ray_direction, scene_objects, closest_hit_object_index, light_sources, accuracy, ambientlight);
-                    pixels[thisone].r = intersectionColor.getRed();
-                    pixels[thisone].g = intersectionColor.getGreen();
-                    pixels[thisone].b = intersectionColor.getBlue();   
-                }
-            }
+//                     Color intersectionColor = getColorAt(intersection_position, intersection_ray_direction, scene_objects, closest_hit_object_index, light_sources, accuracy, ambientlight);
+//                     pixels[thisone].r = intersectionColor.getRed();
+//                     pixels[thisone].g = intersectionColor.getGreen();
+//                     pixels[thisone].b = intersectionColor.getBlue();   
+//                 }
+//             }
             
-        }
+//         }
         
-    }
-    std::cout << "Finished applying geometry functions to vertices - time "<<ctime(&progTime) << std::endl;
+//     }
+//     std::cout << "Finished applying geometry functions to vertices - time "<<ctime(&progTime) << std::endl;
 
-    std::cout << "Rasterization of pixels - time "<<ctime(&progTime) << std::endl;
-    savebmp("scene.bmp", width, height, dpi, pixels);
-    std::cout << "Finished Rasterization of pixels" << std::endl;
-    return 0;
-}                        
+//     std::cout << "Rasterization of pixels - time "<<ctime(&progTime) << std::endl;
+//     savebmp("scene.bmp", width, height, dpi, pixels);
+//     std::cout << "Finished Rasterization of pixels" << std::endl;
+//     return 0;
+// }                        
