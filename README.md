@@ -28,6 +28,121 @@
 
 ## Usage 
 <p>
-    
+    Once you are able to run the compiled executable, the program will execute its main while loop and ask a series of questions that will take user input to determine the type and position of lights in the scene, as well as the color and position of the shape objects the user chooses to add into the scene. The first question after startup is the following:
+
+    ------------------------------------------------------------------------------------------------------------------
+    ---------------------------------------------Simple Shape Set Designer--------------------------------------------
+    ------------------------------------------------------------------------------------------------------------------
+    This Program allows a user to define simple shapes That will be rendered as via ray tracing, and saved to a BMP file.
+    You May Chose To Add To The Scene Or Reset And Start Again. More shapes will increase Render time.
+
+
+
+    The X, Y and Z coordinates are best kept in the range (-4,4). As higher values may be off screen or will not render.
+    The R, G, B and Specular value range from (0,1).
+
+    (Default Lights - 1 | Custom Lights - 2 ):
+
+This first choice describes the dimensional limits of the scene (-4,4) and allow that user to select a default lights setup (provides one central light for a decently lit scene) or customize the X,Y, and Z values of light sources within the scene. Keep in mind that with ray tracing, each source of lighting can have a major effect on rendering time.
+Once lighting has been decided for the scene, the user will be prompted to select from several options including the option to render the current scene, select shapes to add to the scene, reset the shapes/lights/scene, or end the program:
+
+    Please Select A Shape To Render In The Scene, Or Reset The Scene.
+    (Skip Iteration/Render - 0 | Sphere - 1 | Cube - 2 | Triangle - 3 | Reset Shapes - 4 | Reset Lights - 5 | Reset Scene - 6 | End Program - 7):
 </p>
- 
+
+### Sphere
+<p>
+Should the user select to create a sphere they will be guided through the following input options
+
+    (Default Sphere - 1 | Custom Sphere - 2): 2
+
+    SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
+
+    X Value - this controls the HORIZONTAL LOCATION: 0
+
+    Y Value - this controls the VERTICAL LOCATION: 0
+
+    Z Value - this controls the DEPTH: 2
+
+    Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 3
+    Set Sphere Radius: 1
+
+![Rendered Sphere Example](saved_scenes/example.bmp?raw=true "YIGL Example Sphere Output")
+
+</p>
+
+### Triangle
+<p>
+Should the user select Triangle they will be guided through the following input options
+
+    Default Triangle - 1 | Custom Triangle - 2:
+    2
+    Set Triangle's first point.
+
+    SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
+
+    X Value - this controls the HORIZONTAL LOCATION: 1
+
+    Y Value - this controls the VERTICAL LOCATION: -1
+
+    Z Value - this controls the DEPTH: 3
+    Set Triangle's second point.
+
+    SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
+
+    X Value - this controls the HORIZONTAL LOCATION: -1
+
+    Y Value - this controls the VERTICAL LOCATION: -2
+
+    Z Value - this controls the DEPTH: 4
+    Set Triangle's third point.
+
+    SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
+
+    X Value - this controls the HORIZONTAL LOCATION: 1
+
+    Y Value - this controls the VERTICAL LOCATION: 2
+
+    Z Value - this controls the DEPTH: 3
+
+    Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 2
+
+![Rendered Triangle Example](saved_scenes/example_triangle.bmp?raw=true "YIGL Example Triangle Output")
+
+</p>
+
+### Cube
+<p>
+Should the user select Cube they will be guided through the following input options to select 2 point in the scene. The points given by the user will be used to set the OPPOSITE CORNERS of the cubes that wil be rendered with those coordinates.
+
+    Default Cube - 1 | Custom Cube - 2: 2
+    Set Cube's first Corner Point.
+
+    SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
+
+    X Value - this controls the HORIZONTAL LOCATION: -0.5
+
+    Y Value - this controls the VERTICAL LOCATION: 1
+
+    Z Value - this controls the DEPTH: 2
+    Set Cube's second point.
+
+    SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
+
+    X Value - this controls the HORIZONTAL LOCATION: 0.5
+
+    Y Value - this controls the VERTICAL LOCATION: 0
+
+    Z Value - this controls the DEPTH: 0
+
+    Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 1
+
+
+![Rendered Cube Example](saved_scenes/example_cube.bmp?raw=true "YIGL Example Cube Output")
+</p>
+
+## Example Output
+After completing the input steps, the scene created by the users choices will be rendered to <b>scene.bmp</b>. An example output scene is shown.
+The program allows users to add to a scene to render multiple objects as well. After creating one, a user can continue to add more objects. Each will affect the lighting of one another and add to rendering time.
+
+![Alt text](saved_scenes/example2.bmp?raw=true "YIGL Example Multishape Output")
