@@ -67,7 +67,7 @@ Should the user select to create a sphere they will be guided through the follow
     Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 3
     Set Sphere Radius: 1
 
-![Alt text](saved_scenes\example.bmp?raw=true "YIGL Example Sphere Output")
+![Rendered Sphere Example](saved_scenes/example.bmp?raw=true "YIGL Example Sphere Output")
 
 </p>
 
@@ -107,7 +107,7 @@ Should the user select Triangle they will be guided through the following input 
 
     Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 2
 
-![Alt text](saved_scenes\example_triangle.bmp?raw=true "YIGL Example Sphere Output")
+![Rendered Triangle Example](saved_scenes/example_triangle.bmp?raw=true "YIGL Example Triangle Output")
 
 </p>
 
@@ -138,11 +138,11 @@ Should the user select Cube they will be guided through the following input opti
     Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 1
 
 
-![Alt text](saved_scenes\example_cube.bmp?raw=true "YIGL Example Sphere Output")
+![Rendered Cube Example](saved_scenes/example_cube.bmp?raw=true "YIGL Example Cube Output")
 </p>
 
 ## Example Output
 After completing the input steps, the scene created by the users choices will be rendered to <b>scene.bmp</b>. An example output scene is shown.
 The program allows users to add to a scene to render multiple objects as well. After creating one, a user can continue to add more objects. Each will affect the lighting of one another and add to rendering time.
 
-![Alt text](saved_scenes\example2.bmp?raw=true "YIGL Example Sphere Output")
+![Alt text](saved_scenes/example2.bmp?raw=true "YIGL Example Multishape Output")
