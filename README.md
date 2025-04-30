@@ -50,12 +50,33 @@ Once lighting has been decided for the scene, the user will be prompted to selec
     (Skip Iteration/Render - 0 | Sphere - 1 | Cube - 2 | Triangle - 3 | Reset Shapes - 4 | Reset Lights - 5 | Reset Scene - 6 | End Program - 7):
 </p>
 
+### Sphere
+<p>
+Should the user select to create a sphere they will be guided through the following input options
+
+    (Default Sphere - 1 | Custom Sphere - 2): 2
+
+    SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
+
+    X Value - this controls the HORIZONTAL LOCATION: 0
+
+    Y Value - this controls the VERTICAL LOCATION: 0
+
+    Z Value - this controls the DEPTH: 2
+
+    Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 3
+    Set Sphere Radius: 1
+
+![Alt text](saved_scenes\example.bmp?raw=true "YIGL Example Sphere Output")
+
+</p>
+
 ### Triangle
 <p>
 Should the user select Triangle they will be guided through the following input options
 
-    Default Triangle - 1 | Custom Triangle - 2: 2
-
+    Default Triangle - 1 | Custom Triangle - 2:
+    2
     Set Triangle's first point.
 
     SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
@@ -64,8 +85,7 @@ Should the user select Triangle they will be guided through the following input 
 
     Y Value - this controls the VERTICAL LOCATION: -1
 
-    Z Value - this controls the DEPTH: -3
-    
+    Z Value - this controls the DEPTH: 3
     Set Triangle's second point.
 
     SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
@@ -74,8 +94,7 @@ Should the user select Triangle they will be guided through the following input 
 
     Y Value - this controls the VERTICAL LOCATION: -2
 
-    Z Value - this controls the DEPTH: -4
-    
+    Z Value - this controls the DEPTH: 4
     Set Triangle's third point.
 
     SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
@@ -85,6 +104,11 @@ Should the user select Triangle they will be guided through the following input 
     Y Value - this controls the VERTICAL LOCATION: 2
 
     Z Value - this controls the DEPTH: 3
+
+    Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 2
+
+![Alt text](saved_scenes\example_triangle.bmp?raw=true "YIGL Example Sphere Output")
+
 </p>
 
 ### Cube
@@ -92,26 +116,33 @@ Should the user select Triangle they will be guided through the following input 
 Should the user select Cube they will be guided through the following input options to select 2 point in the scene. The points given by the user will be used to set the OPPOSITE CORNERS of the cubes that wil be rendered with those coordinates.
 
     Default Cube - 1 | Custom Cube - 2: 2
-
     Set Cube's first Corner Point.
 
     SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
 
-    X Value - this controls the HORIZONTAL LOCATION: 1
+    X Value - this controls the HORIZONTAL LOCATION: -0.5
 
-    Y Value - this controls the VERTICAL LOCATION: 2
+    Y Value - this controls the VERTICAL LOCATION: 1
 
-    Z Value - this controls the DEPTH: -3
-
+    Z Value - this controls the DEPTH: 2
     Set Cube's second point.
 
     SELECT THE XYZ COORDINATES FOR YOUR SHAPE:
 
-    X Value - this controls the HORIZONTAL LOCATION: -4
+    X Value - this controls the HORIZONTAL LOCATION: 0.5
 
-    Y Value - this controls the VERTICAL LOCATION: -4
+    Y Value - this controls the VERTICAL LOCATION: 0
 
-    Z Value - this controls the DEPTH: -4
+    Z Value - this controls the DEPTH: 0
+
+    Red - 1 | Green - 2 | Blue - 3 | Custom - 4: 1
+
+
+![Alt text](saved_scenes\example_cube.bmp?raw=true "YIGL Example Sphere Output")
 </p>
 
- 
+## Example Output
+After completing the input steps, the scene created by the users choices will be rendered to <b>scene.bmp</b>. An example output scene is shown.
+The program allows users to add to a scene to render multiple objects as well. After creating one, a user can continue to add more objects. Each will affect the lighting of one another and add to rendering time.
+
+![Alt text](saved_scenes\example2.bmp?raw=true "YIGL Example Sphere Output")
