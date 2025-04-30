@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -78,6 +77,7 @@ Color selectColor()
     }
     else{
         cout << "\nUnsupported option. Please try again.\n" << endl;
+        return Color();
     }  
 }
 
@@ -124,11 +124,12 @@ Sphere* createUserSphere()
         cout << "Set Sphere Radius: ";
         cin >> sphere_radius;
 
-        return new Sphere (sphere_loc, sphere_radius, sphere_color);;
+        return new Sphere (sphere_loc, sphere_radius, sphere_color);
     }
     else
     {
         cout << "\nUnsupported option. Please try again.\n" << endl;
+        return new Sphere ();
     }   
 }
 //
@@ -167,8 +168,8 @@ Triangle* createUserTriangle()
     else
     {
         cout << "\nUnsupported option. Please try again.\n" << endl;
+        return new Triangle();
     }
-    
 }
 //
 // Function to Create Triangle object based on user input
@@ -204,6 +205,7 @@ Cube* createUserCube()
     else
     {
         cout << "\nUnsupported option. Please try again.\n" << endl;
+        return new Cube();
     }
     
 }
